@@ -7,10 +7,14 @@ input:focus {
   outline: none;
 }
 
+/* ================ 
+     INPUT
+==================*/
+
 .form-item {
   margin: 0;
   box-sizing: border-box;
-  width: 75%;
+  width: 100%;
   padding: 5rem;
 }
 
@@ -97,20 +101,6 @@ input:focus {
   padding: 27px 12px 10px;
 }
 
-.form-input-wrapper {
-  position: relative;
-  transition: background-color 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
-  background-color: rgba(0, 0, 0, 0.09);
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-
-  width: 100%;
-
-  color: #c5a334;
-  font-size: 1.25rem;
-  background-color: #2b2b2b;
-}
-
 .form-input-wrapper:before {
   left: 0;
   right: 0;
@@ -140,5 +130,88 @@ input:focus {
 }
 
 .form-input-wrapper.expand:after {
+  transform: scaleX(1);
+}
+
+/* ================ 
+    TEXTAREA
+==================*/
+
+.form-textarea {
+  font: inherit;
+  color: currentColor;
+  width: 100%;
+  border: 0;
+  height: 1.1876em;
+  margin: 0;
+  display: block;
+  padding: 6px 0 7px;
+  min-width: 0;
+  background: none;
+  box-sizing: content-box;
+  animation-name: mui-auto-fill-cancel;
+  letter-spacing: inherit;
+  animation-duration: 10ms;
+  -webkit-tap-highlight-color: transparent;
+
+  padding: 27px 12px 10px;
+
+  height: auto;
+  resize: none;
+  padding: 0;
+}
+
+.form-textarea-wrapper {
+  color: rgba(0, 0, 0, 0.87);
+  cursor: text;
+  display: inline-flex;
+  position: relative;
+  font-size: 1rem;
+  box-sizing: border-box;
+  align-items: center;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 300;
+  line-height: 1.1876em;
+  letter-spacing: 0.00938em;
+
+  width: 100%;
+
+  position: relative;
+  transition: background-color 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  background-color: rgba(0, 0, 0, 0.09);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+
+  padding: 27px 12px 10px;
+
+  color: #c5a334;
+  font-size: 1.25rem;
+  background-color: #2b2b2b;
+}
+
+.form-textarea-wrapper:before {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  content: "\00a0";
+  position: absolute;
+  transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+  pointer-events: none;
+}
+
+.form-textarea-wrapper:after {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  content: "";
+  position: absolute;
+  transform: scaleX(0);
+  transition: transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  border-bottom: 2px solid #c5a334;
+  pointer-events: none;
+}
+
+.form-textarea-wrapper.expand:after {
   transform: scaleX(1);
 }
