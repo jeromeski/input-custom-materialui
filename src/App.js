@@ -23,7 +23,7 @@ export default function App() {
   return (
     <div className="form-item">
       <div className="form-control">
-        <label className={`form-label ${focused ? "shrink" : ""}`}>NAME</label>
+        <label className={`form-label ${focused ? "shrink" : ""}`}>Name</label>
         <div className="form-input-wrapper">
           <input
             className="form-input"
