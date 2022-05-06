@@ -1,31 +1,35 @@
 import { useEffect, useState } from "react";
 
 function Textarea() {
-  const [focused, setFocused] = useState(false);
-  const handleFocus = () => {
-    setFocused(true);
+  const handleFocus = (e) => {
+    if (e.target.value) {
+      e.target.parentNode.parentNode
+        .querySelector(".form-label")
+        .classList.remove("gray");
+      return;
+    }
+    e.target.parentNode.classList.add("expand");
+    e.target.parentNode.parentNode
+      .querySelector(".form-label")
+      .classList.add("shrink");
   };
 
-  const handleBlur = () => {
-    setFocused(false);
+  const handleBlur = (e) => {
+    if (e.target.value) {
+      e.target.parentNode.parentNode
+        .querySelector(".form-label")
+        .classList.add("gray");
+      return;
+    }
+    e.target.parentNode.classList.remove("expand");
+    e.target.parentNode.parentNode
+      .querySelector(".form-label")
+      .classList.remove("shrink");
   };
-
-  useEffect(() => {
-    if (focused) {
-      document.querySelector(".form-textarea-wrapper").classList.add("expand");
-    }
-    if (!focused) {
-      document
-        .querySelector(".form-textarea-wrapper")
-        .classList.remove("expand");
-    }
-  }, [focused]);
   return (
     <div className="form-item">
       <div className="form-control">
-        <label className={`form-label ${focused ? "shrink" : ""}`}>
-          Message
-        </label>
+        <label className="form-label">Message</label>
         <div className="form-textarea-wrapper">
           <textarea
             rows="3"

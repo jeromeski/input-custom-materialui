@@ -55,7 +55,7 @@ input:focus {
   letter-spacing: 0.00938em;
 }
 
-.form-input-wrapper {
+.form-inner-wrapper {
   color: rgba(0, 0, 0, 0.87);
   cursor: text;
   display: inline-flex;
@@ -93,7 +93,6 @@ input:focus {
   min-width: 0;
   background: none;
   box-sizing: content-box;
-  animation-name: mui-auto-fill-cancel;
   letter-spacing: inherit;
   animation-duration: 10ms;
   -webkit-tap-highlight-color: transparent;
@@ -101,7 +100,7 @@ input:focus {
   padding: 27px 12px 10px;
 }
 
-.form-input-wrapper:before {
+.form-inner-wrapper:before {
   left: 0;
   right: 0;
   bottom: 0;
@@ -112,7 +111,7 @@ input:focus {
   pointer-events: none;
 }
 
-.form-input-wrapper:after {
+.form-inner-wrapper:after {
   left: 0;
   right: 0;
   bottom: 0;
@@ -129,7 +128,11 @@ input:focus {
   transform: translate(12px, 10px) scale(0.7);
 }
 
-.form-input-wrapper.expand:after {
+.gray {
+  color: grey !important;
+}
+
+.form-inner-wrapper.expand:after {
   transform: scaleX(1);
 }
 
