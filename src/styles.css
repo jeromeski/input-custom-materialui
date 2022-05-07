@@ -56,10 +56,8 @@ input:focus {
 }
 
 .form-inner-wrapper {
-  color: rgba(0, 0, 0, 0.87);
   cursor: text;
   display: inline-flex;
-  position: relative;
   font-size: 1rem;
   box-sizing: border-box;
   align-items: center;

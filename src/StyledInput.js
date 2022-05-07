@@ -1,9 +1,7 @@
-import { useEffect, useState } from "react";
 import {
   FormControl,
   FormInnerWrapper,
   FormInput,
-  FormItem,
   FormLabel
 } from "./styled-form-components";
 

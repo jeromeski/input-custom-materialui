@@ -1,9 +1,8 @@
-import styled, { css } from "styled-components/macro";
-import { flexbox, compose, layout, space } from "styled-system";
+import styled from "styled-components/macro";
+import { compose, layout, space } from "styled-system";
 
 export const FormGroup = styled.div`
   display: flex;
-  ${compose(layout, space)}
 `;
 
 export const FormControl = styled.div`
@@ -54,31 +53,60 @@ export const FormLabel = styled.label`
   }
 `;
 
+const fiw = {
+  cursor: "text",
+  display: "inline-flex",
+  fontSize: "1rem",
+  boxSizing: "border-box",
+  alignItems: "center",
+  fontFamily: "Roboto, Helvetica, Arial, sans-serif",
+  fontWeight: 300,
+  lineHeight: "1.1876em",
+  "letter-spacing": "0.00938em",
+
+  width: "100%",
+
+  position: "relative",
+  transition: "background-color 200ms cubic-bezier(0, 0, 0.2, 1) 0ms",
+  "border-top-left-radius": "4px",
+  "border-top-right-radius": "4px",
+
+  color: "#c5a334",
+  "font-size": "1.25rem",
+  "background-color": "#2b2b2b"
+};
+
 export const FormInnerWrapper = styled.div`
-  /* color: rgba(0, 0, 0, 0.87); */
-  cursor: text;
-  display: inline-flex;
-  position: relative;
-  font-size: 1rem;
-  box-sizing: border-box;
-  align-items: center;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  font-weight: 300;
-  line-height: 1.1876em;
-  letter-spacing: 0.00938em;
-
-  width: 100%;
-
-  position: relative;
-  transition: background-color 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
-  background-color: rgba(0, 0, 0, 0.09);
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-
-  color: #c5a334;
-  font-size: 1.25rem;
-  background-color: #2b2b2b;
+  ${fiw}
+  &::before {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: "\00a0";
+    position: absolute;
+    transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+    pointer-events: none;
+  }
+  &::after {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: "";
+    position: absolute;
+    transform: scaleX(0);
+    transition: transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+    border-bottom: 2px solid #c5a334;
+    pointer-events: none;
+  }
+  &.expand {
+    &::after {
+      transform: scaleX(1);
+    }
+  }
 `;
+
+/* color: rgba(0, 0, 0, 0.87); */
 
 export const FormInput = styled.input`
   font: inherit;
@@ -98,3 +126,29 @@ export const FormInput = styled.input`
 
   padding: 27px 12px 10px;
 `;
+
+/*
+&:before {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: "\00a0";
+    position: absolute;
+    transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+    pointer-events: none;
+  }
+
+  &:after {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: "";
+    position: absolute;
+    transform: scaleX(0);
+    transition: transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+    border-bottom: 2px solid #c5a334;
+    pointer-events: none;
+  }
+
+*/
