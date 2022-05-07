@@ -1,40 +1,50 @@
-// import { useEffect, useState } from "react";
-// import {
-//   FormControl,
-//   FormInnerWrapper,
-//   FormInput,
-//   FormItem,
-//   FormLabel
-// } from "./styled-form-components";
+import { useEffect, useState } from "react";
+import {
+  FormControl,
+  FormInnerWrapper,
+  FormInput,
+  FormItem,
+  FormLabel
+} from "./styled-form-components";
 
-// function StyledInput() {
-//   const [focused, setFocused] = useState(false);
-//   const handleFocus = () => {
-//     setFocused(true);
-//   };
+function StyledInput({ onChange }) {
+  const handleFocus = (e) => {
+    if (e.target.value) {
+      e.target.parentNode.parentNode
+        .querySelector(".formLabel")
+        .classList.remove("gray");
+      return;
+    }
+    e.target.parentNode.classList.add("expand");
+    e.target.parentNode.parentNode
+      .querySelector(".formLabel")
+      .classList.add("shrink");
+  };
 
-//   const handleBlur = () => {
-//     setFocused(false);
-//   };
+  const handleBlur = (e) => {
+    if (e.target.value) {
+      e.target.parentNode.parentNode
+        .querySelector(".formLabel")
+        .classList.add("gray");
+      return;
+    }
+    e.target.parentNode.classList.remove("expand");
+    e.target.parentNode.parentNode
+      .querySelector(".formLabel")
+      .classList.remove("shrink");
+  };
+  return (
+    <FormControl>
+      <FormLabel className="formLabel">Hello</FormLabel>
+      <FormInnerWrapper>
+        <FormInput
+          onFocus={handleFocus}
+          onBlur={handleBlur}
+          onChange={onChange}
+        />
+      </FormInnerWrapper>
+    </FormControl>
+  );
+}
 
-//   useEffect(() => {
-//     if (focused) {
-//       document.querySelector(".form-input-wrapper").classList.add("expand");
-//     }
-//     if (!focused) {
-//       document.querySelector(".form-input-wrapper").classList.remove("expand");
-//     }
-//   }, [focused]);
-//   return (
-//     <FormItem>
-//       <FormControl>
-//         <FormLabel>Hello</FormLabel>
-//         <FormInnerWrapper>
-//           <FormInput onFocus={handleFocus} onHover={handleBlur} />
-//         </FormInnerWrapper>
-//       </FormControl>
-//     </FormItem>
-//   );
-// }
-
-// export default StyledInput;
+export default StyledInput;

@@ -1,17 +1,16 @@
-import styled, { css, attrs } from "styled-components";
+import styled, { css } from "styled-components/macro";
+import { flexbox, compose, layout, space } from "styled-system";
 
-export const FormItem = styled.div`
-  margin: 0;
-  box-sizing: border-box;
-  width: 100%;
-  width: 100%;
-  margin-top: 1em;
+export const FormGroup = styled.div`
+  display: flex;
+  ${compose(layout, space)}
 `;
 
 export const FormControl = styled.div`
+  box-sizing: border-box;
+  margin-top: 1em;
   width: 100%;
   border: 0;
-  margin: 0;
   display: inline-flex;
   padding: 0;
   position: relative;
@@ -20,42 +19,43 @@ export const FormControl = styled.div`
   vertical-align: top;
 `;
 
-export const FormLabel = styled.label.attrs((props) => {
-  return { className: "form-label" };
-})`
-  display: block;
-  transform-origin: top left;
+export const FormLabel = styled.label`
+  &.formLabel {
+    display: block;
+    transform-origin: top left;
 
-  top: 0;
-  left: 0;
-  position: absolute;
-  transform: translate(0, 24px) scale(1);
+    top: 0;
+    left: 0;
+    position: absolute;
+    transform: translate(0, 24px) scale(1);
 
-  transition: color 200ms cubic-bezier(0, 0, 0.2, 1) 0ms,
-    transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+    transition: color 200ms cubic-bezier(0, 0, 0.2, 1) 0ms,
+      transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
 
-  z-index: 1;
-  transform: translate(12px, 20px) scale(1);
-  pointer-events: none;
+    z-index: 1;
+    transform: translate(12px, 20px) scale(1);
+    pointer-events: none;
 
-  color: grey;
-  padding: 0;
-  font-size: 1.2rem;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: 0.00938em;
-
-  .shrink {
+    color: grey;
+    padding: 0;
+    font-size: 1.2rem;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0.00938em;
+  }
+  &.shrink {
     color: #c5a334;
     transform: translate(12px, 10px) scale(0.7);
   }
+
+  &.gray {
+    color: grey !important;
+  }
 `;
 
-export const FormInnerWrapper = styled.div.attrs((props) => {
-  return { className: "form-inner-wrapper" };
-})`
-  color: rgba(0, 0, 0, 0.87);
+export const FormInnerWrapper = styled.div`
+  /* color: rgba(0, 0, 0, 0.87); */
   cursor: text;
   display: inline-flex;
   position: relative;
@@ -82,6 +82,7 @@ export const FormInnerWrapper = styled.div.attrs((props) => {
 
 export const FormInput = styled.input`
   font: inherit;
+  color: inherit;
   width: 100%;
   border: 0;
   height: 1.1876em;
